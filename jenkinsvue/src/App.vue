@@ -1,27 +1,23 @@
 <template>
-  <div>
-    用户名:<input type="text"  placeholder="请输入用户名"/>
-    <br><br>
-    密码： <input type="password" placeholder="请输入密码"/>
-    <br><br>
-    <button>登录</button>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <router-view/>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Login',
-  data () {
-    return {
-      loginForm: {
-        username: '',
-        password: ''
-      },
-      responseResult: []
-    }
-  },
-  methods: {}
+  name: 'App'
 }
 </script>
 
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

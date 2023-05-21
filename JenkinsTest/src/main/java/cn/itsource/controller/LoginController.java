@@ -1,9 +1,11 @@
 package cn.itsource.controller;
 
 import cn.itsource.entity.User;
+import cn.itsource.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author wangkui
@@ -13,12 +15,16 @@ import java.util.Objects;
  */
 @RestController
 public class LoginController {
-    @CrossOrigin
+    @Autowired
+    UserServiceImpl userService;
     @PostMapping("/userLogin")
     public String login(@RequestBody User requestUser){
         String username=requestUser.getName();
         String password=requestUser.getPwd();
-        if (Objects.equals(username,"test")&&Objects.equals(password,"123456")){
+        Map<String, Object> map = new HashMap<>();
+        List<User> list=new ArrayList<>();
+        list=userService.queryByNameAndPwd(username,password);
+        if (list.size()>0){
             System.out.println("登录成功");
             return "登录成功";
         }else{

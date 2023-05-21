@@ -40,5 +40,15 @@ public class UserServiceImpl {
         map.put("name", name);
         return userMapper.selectByMap(map);
     }
+
+    public List<User> queryByNameAndPwd(String name,String pwd){
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", name);
+        map.put("pwd", pwd);
+         userMapper.selectByMap(map);
+
+        return userMapper.selectByMap(map);
+    }
+
 }
 

@@ -1,21 +1,19 @@
 <template>
   <div>
-    this is a Login page
+    用户名:<input type="text" placeholder="请输入用户名"/>
+    <br><br>
+    密码： <input type="password" placeholder="请输入密码"/>
+    <br><br>
+    <button>登录</button>
   </div>
 </template>
 
 <script>
+
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  name: 'Login',
+  data:{},
+  methods: {
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>

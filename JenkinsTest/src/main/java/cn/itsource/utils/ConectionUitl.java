@@ -2,7 +2,6 @@ package cn.itsource.utils;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
 
 /**
  * @author wangkui
@@ -19,6 +18,7 @@ public class ConectionUitl {
         connectionFactory.setHost("127.0.0.1");
         //端口
         connectionFactory.setPort(5672);
+        //guo'g'n
         Connection connection=connectionFactory.newConnection();
         return connection;
     }

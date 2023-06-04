@@ -4,6 +4,7 @@ import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author wangkui
@@ -11,7 +12,7 @@ import java.io.UnsupportedEncodingException;
  * @description:
  * @version:
  */
-public class Consumer {
+public class Consumer1 {
     private final static String QUEUE_NAME = "simple_queue";
 
     public static void main(String[] argv) throws Exception {
@@ -53,7 +54,9 @@ public class Consumer {
                 String msg = new String(body,"utf-8");
                 System.out.println(" [x] received : " + msg + "!");
                 //手动进行ACK
-                channel.basicAck(envelope.getDeliveryTag(),false);
+                try { TimeUnit.SECONDS.sleep(1); } catch (Exception e) { e.printStackTrace(); }
+
+               // channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
         // 监听队列，第二个参数：是否自动进行消息确认。
@@ -64,7 +67,7 @@ public class Consumer {
          * 2、autoAck 自动回复，当消费者接收到消息后要告诉mq消息已接收，如果将此参数设置为tru表示会自动回复mq，如果设置为false要通过编程实现回复
          * 3、callback，消费方法，当消费者接收到消息要执行的方法
          */
-        channel.basicConsume(QUEUE_NAME, false, consumer);
+        channel.basicConsume(QUEUE_NAME, true, consumer);
 
     }
 }

@@ -9,6 +9,22 @@ spring:
     url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 123456
+  mail:
+    default-encoding: UTF-8
+    host:  smtp.qq.com #smtp.163.com #smtp.qq.com
+    #这里不是邮箱的登录密码，而是开启PO3/SMTP服务时邮箱的授权码
+    username: 1735260756@qq.com
+    password: xaidnhwobkmccfdg
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail.smtp.auth: true
+    port: 587
+    mail:
+      smtp:
+      socketFactory:
+      class: javax.net.ssl.SSLSocketFactory
+      debug: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志

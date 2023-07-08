@@ -53,7 +53,7 @@ public class Consumer2 {
                 String msg = new String(body,"utf-8");
                 System.out.println(" [x] received : " + msg + "!");
                 //手动进行ACK
-                channel.basicAck(envelope.getDeliveryTag(),false);
+                //channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
         // 监听队列，第二个参数：是否自动进行消息确认。

@@ -54,7 +54,7 @@ public class Consumer1 {
                 //手动进行ACK
                 try { TimeUnit.SECONDS.sleep(1); } catch (Exception e) { e.printStackTrace(); }
 
-                channel.basicAck(envelope.getDeliveryTag(),false);
+                //channel.basicAck(envelope.getDeliveryTag(),false);
             }
         };
         // 监听队列，第二个参数：是否自动进行消息确认。
